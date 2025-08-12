@@ -204,4 +204,33 @@
   toggleBtn.addEventListener('click', () => {
     if (coolzyySection.style.display !== 'none') {
       coolzyySection.style.display = 'none';
-      specialzyy
+      specialzyySection.style.display = 'block';
+      toggleBtn.textContent = 'Switch to Coolzyy Hub';
+      document.body.style.background = '#121212';
+      document.body.style.color = '#e0e0e0';
+    } else {
+      specialzyySection.style.display = 'none';
+      coolzyySection.style.display = 'block';
+      toggleBtn.textContent = 'Switch to Specialzyy Hub';
+      document.body.style.background = '#b22222';
+      document.body.style.color = '#f0f0f0';
+    }
+  });
+
+  // Install buttons functionality for Specialzyy tools
+  document.querySelectorAll('#specialzyy .btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const url = button.getAttribute('data-url');
+      if (url.startsWith('itms-services://')) {
+        // For iOS device install links
+        window.location.href = url;
+      } else {
+        // Open external links in new tab
+        window.open(url, '_blank');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
